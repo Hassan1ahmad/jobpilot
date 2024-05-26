@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import Image from "next/image";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import DOMPurify from "dompurify";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -246,4 +246,11 @@ if(!searchJob){
   );
 }
 
-export default JobDetail;
+
+export default function JobDetailWithSuspense() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <JobDetail />
+    </Suspense>
+  );
+}

@@ -1,7 +1,7 @@
 'use client'
 import JobFinder from '@/components/JobFinder';
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { Suspense, useEffect, useMemo, useState } from 'react'
 
 function JobSearch() {
     const [searchJob, setsearchJob] = useState("");
@@ -25,4 +25,10 @@ function JobSearch() {
   )
 }
 
-export default JobSearch
+export default function JobSearchWithSuspense() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <JobSearch />
+    </Suspense>
+  );
+}
