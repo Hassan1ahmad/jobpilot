@@ -58,7 +58,7 @@ if (error) {
           View All
           <Image
             src="/assets/fi_arrow-right.png" 
-            alt=""
+            alt="arrow"
             width={18}
             height={18}
           />

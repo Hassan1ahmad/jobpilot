@@ -48,6 +48,9 @@ function JobDetail() {
     fetchData();
   }, [searchJob]);
 
+  const [imageSrc, setImageSrc] = useState(detail[0]?.company_logo_url);
+
+
   const sanitizedDescription = DOMPurify.sanitize(detail[0]?.description);
 
   
@@ -99,13 +102,14 @@ if(!searchJob){
         <div className="intro flex justify-between max-md:flex-wrap max-sm: max-md:gap-[5vw]">
           {/* Title */}
           <div className="title flex gap-2 items-center">
-            <Image
-              className="w-17 h-17 rounded-full"
-              src="/assets/jon-icon.png"
-              width={76}
-              height={76}
-              alt="job logo"
-            />
+          <Image
+                src={imageSrc}
+                className=" rounded-full"
+                alt="company logo"
+                width={76}
+                height={76}
+                onError={()=>{setImageSrc('/assets/jon-icon.png')}}
+              />
             <div>
               {/* title */}
               <p className="text-zinc-900 text-xl max-sm:text-lg font-medium leading-loose max-sm:leading-tight">

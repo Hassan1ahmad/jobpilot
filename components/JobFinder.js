@@ -153,7 +153,7 @@ function JobFinder({URL,Text}) {
                             salaryRange={job.salary}
                             companyName={job.company_name}
                             location={job.candidate_required_location}
-                            imageUrl={job.company_logo_url}
+                            imageUrl={job.company_logo}
                         />
                     ))}
                 </div>
